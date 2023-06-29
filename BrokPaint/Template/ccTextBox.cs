@@ -50,5 +50,7 @@ namespace BrokPaint.Template
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ccTextBox), new FrameworkPropertyMetadata(typeof(ccTextBox)));
         }
+
+
     }
 }

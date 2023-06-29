@@ -71,6 +71,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger SourceName="brdMain" Property="IsMouseOver" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource fgTextBoxIsMouseOver}"/>
+                            <Setter Property="Opacity" Value="0.8"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

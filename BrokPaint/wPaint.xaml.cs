@@ -30,5 +30,10 @@ namespace BrokPaint
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
+
+        private void btnBrush_Click(object sender, RoutedEventArgs e)
+        {
+            inPaint.DefaultDrawingAttributes.Color = Converter.ConvertStringToColor.StringToColor(txtColorHEX.Text);
+        }
     }
 }

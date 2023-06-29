@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BrokPaint"
         xmlns:cc="clr-namespace:BrokPaint.Template"
+        xmlns:co="clr-namespace:BrokPaint.Converter"
         mc:Ignorable="d"
         x:Name="wPaint"
         ResizeMode="NoResize"
@@ -30,19 +31,32 @@
                 Grid.Row="0"
                 >
                 <cc:ccButton
+                    x:Name="btnBrush"
                     Content="Brush"
                     HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
+                    VerticalAlignment="Center" Click="btnBrush_Click"
                     />
-
                 <cc:ccButton
+                    x:Name="btnEraser"
+                    Content="Eraser"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     />
                 <cc:ccTextBox
-                    Text="Brok"
+                    x:Name="txtColorHEX"
+                    Text="#FFA500"
+                    />
+                <Ellipse
+                    Fill="{Binding ElementName=txtColorHEX,Path=Text}"
+                    Width="20" Height="20"
                     />
             </StackPanel>
+            <InkCanvas
+                Background="Black"
+                x:Name="inPaint"
+                Grid.Row="1"
+                >
+            </InkCanvas>
         </Grid>
     </Border>
 </Window>
