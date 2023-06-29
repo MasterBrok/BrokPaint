@@ -8,8 +8,21 @@
 
     <!--Colors TextBox-->
     <SolidColorBrush x:Key="bgTextBox" Color="#2D2533"/>
-    <SolidColorBrush x:Key="fgTextBox" Color="#645C6A"/>
+    <SolidColorBrush x:Key="fgTextBox" Color="#C8C8C8"/>
     <SolidColorBrush x:Key="fgTextBoxIsMouseOver" Color="#B6B3B8"/>
+
+
+    <!--Colors CheckBoxs-->
+    <SolidColorBrush x:Key="bgCheckbox" Color="#524E6B"/>
+    <SolidColorBrush x:Key="vgCheckedFalse" Color="#48455E"/>
+    <SolidColorBrush x:Key="vgCheckedTrue" Color="#857FAD"/>
+
+    <!--Colors Ellipse-->
+    <SolidColorBrush x:Key="f2" Color="#00FF00"/>
+    <SolidColorBrush x:Key="f3" Color="#FFFF00"/>
+    <SolidColorBrush x:Key="f4" Color="#FF00FF"/>
+    <SolidColorBrush x:Key="f5" Color="#FFA500"/>
+    <SolidColorBrush x:Key="f6" Color="#FF0000"/>
 
 
 </ResourceDictionary>

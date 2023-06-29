@@ -33,7 +33,34 @@ namespace BrokPaint
 
         private void btnBrush_Click(object sender, RoutedEventArgs e)
         {
+            if (txtWidth.Text == "0" || txtHeight.Text == "0")
+            {
+                txtHeight.Text = "5";
+                txtWidth.Text = "5";
+            }
             inPaint.DefaultDrawingAttributes.Color = Converter.ConvertStringToColor.StringToColor(txtColorHEX.Text);
+            inPaint.DefaultDrawingAttributes.Width = double.Parse(txtWidth.Text);
+            inPaint.DefaultDrawingAttributes.Height = double.Parse(txtHeight.Text);
+        }
+
+        private void btnEraser_Click(object sender, RoutedEventArgs e)
+        {
+            if (chPoint.IsChecked is true)
+            {
+                inPaint.EditingMode = InkCanvasEditingMode.EraseByPoint;
+                chAll.IsChecked = false;
+            }
+            if (chAll.IsChecked is true)
+            {
+                inPaint.EditingMode = InkCanvasEditingMode.EraseByStroke;
+                chPoint.IsChecked = false;
+            }
+
+        }
+
+        private void Ellipse_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            txtColorHEX.Text = (sender as Ellipse).Fill.ToString();
         }
     }
 }

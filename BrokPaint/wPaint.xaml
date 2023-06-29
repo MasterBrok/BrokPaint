@@ -22,26 +22,67 @@
         Background="Black"
         >
         <Grid>
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <InkCanvas
+                Background="Black"
+                x:Name="inPaint"
+                Grid.Row="1"
+                >
+            </InkCanvas>
+
             <StackPanel
                 Orientation="Horizontal"
                 Grid.Row="0"
                 >
-                <cc:ccButton
-                    x:Name="btnBrush"
-                    Content="Brush"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center" Click="btnBrush_Click"
-                    />
-                <cc:ccButton
-                    x:Name="btnEraser"
-                    Content="Eraser"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    />
+                <StackPanel>
+                    <cc:ccButton
+                        x:Name="btnBrush"
+                        Content="Brush"
+                        Click="btnBrush_Click"
+                        />
+                    <DockPanel LastChildFill="False">
+                        <cc:ccTextBox
+                            x:Name="txtWidth"
+                            DockPanel.Dock="Left"
+                            Width="40"
+                            Margin="15 0 0 0"
+                            Height="20"
+                            Foreground="White"
+                            >
+                        </cc:ccTextBox>
+
+                        <cc:ccTextBox
+                            x:Name="txtHeight"
+                            DockPanel.Dock="Right"
+                            Margin="0 0 15 0"
+                            Width="40"
+                            Foreground="White"
+                            Height="20"
+                            />
+                    </DockPanel>
+                </StackPanel>
+                <StackPanel>
+                    <cc:ccButton
+                        x:Name="btnEraser"
+                        Content="Eraser"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center" Click="btnEraser_Click"
+                        />
+                    <DockPanel LastChildFill="False">
+                        <cc:ccCheckBox
+                            x:Name="chPoint"
+                            DockPanel.Dock="Left"
+                            />
+                        <cc:ccCheckBox
+                            x:Name="chAll"
+                            DockPanel.Dock="Right"
+                            />
+                    </DockPanel>
+                </StackPanel>
                 <cc:ccTextBox
                     x:Name="txtColorHEX"
                     Text="#FFA500"
@@ -50,13 +91,58 @@
                     Fill="{Binding ElementName=txtColorHEX,Path=Text}"
                     Width="20" Height="20"
                     />
+
+                <Border
+                    Margin="30 0 0 0"
+                    Grid.Row="0"
+                    >
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Resources>
+                            <Style TargetType="Ellipse">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <BlurEffect
+                                            Radius="0"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Width" Value="20"/>
+                                <Setter Property="Height" Value="20"/>
+                                <Setter Property="Margin" Value="5 0 0 0"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Trigger.EnterActions>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation
+                                                        Storyboard.TargetProperty="(Ellipse.Effect).(BlurEffect.Radius)"
+                                                        To="10"
+                                                        />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </Trigger.EnterActions>
+                                        <Trigger.ExitActions>
+                                            <BeginStoryboard >
+                                                <Storyboard>
+                                                    <DoubleAnimation
+                                                        Storyboard.TargetProperty="(Ellipse.Effect).(BlurEffect.Radius)"
+                                                        To="0"
+                                                        />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </Trigger.ExitActions>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Ellipse Fill="{DynamicResource f2}" MouseLeftButtonDown="Ellipse_MouseLeftButtonDown"/>
+                        <Ellipse Fill="{DynamicResource f3}" MouseLeftButtonDown="Ellipse_MouseLeftButtonDown"/>
+                        <Ellipse Fill="{DynamicResource f4}" MouseLeftButtonDown="Ellipse_MouseLeftButtonDown"/>
+                        <Ellipse Fill="{DynamicResource f5}" MouseLeftButtonDown="Ellipse_MouseLeftButtonDown"/>
+                        <Ellipse Fill="{DynamicResource f6}" MouseLeftButtonDown="Ellipse_MouseLeftButtonDown"s/>
+
+                    </StackPanel>
+                </Border>
             </StackPanel>
-            <InkCanvas
-                Background="Black"
-                x:Name="inPaint"
-                Grid.Row="1"
-                >
-            </InkCanvas>
         </Grid>
     </Border>
 </Window>

@@ -12,6 +12,11 @@ namespace BrokPaint.Converter
                 var color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(HexString);
                 return color;
             }
+            else if (!HexString.StartsWith("#"))
+            {
+                var color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(HexString);
+                return color;
+            }
             else
                 return System.Windows.Media.Colors.White;
         }
