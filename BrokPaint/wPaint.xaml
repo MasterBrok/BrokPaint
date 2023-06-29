@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BrokPaint"
+        xmlns:cc="clr-namespace:BrokPaint.Template"
         mc:Ignorable="d"
         x:Name="wPaint"
         ResizeMode="NoResize"
@@ -24,6 +25,15 @@
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <StackPanel
+                Grid.Row="0"
+                >
+                <cc:ccButton
+                    Content="Brush"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    />
+            </StackPanel>
         </Grid>
     </Border>
 </Window>
