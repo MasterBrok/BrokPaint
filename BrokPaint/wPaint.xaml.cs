@@ -33,15 +33,18 @@ namespace BrokPaint
 
         private void btnBrush_Click(object sender, RoutedEventArgs e)
         {
-            inPaint.EditingMode = InkCanvasEditingMode.Ink;
-            if (txtWidth.Text == "0" || txtHeight.Text == "0")
+            if (Converter.ConvertStringToColor.StringToColor(txtColorHEX.Text) is System.Windows.Media.Color meColor)
             {
-                txtHeight.Text = "5";
-                txtWidth.Text = "5";
+                inPaint.DefaultDrawingAttributes.Color = meColor;
+                inPaint.EditingMode = InkCanvasEditingMode.Ink;
+                if (txtWidth.Text == "0" || txtHeight.Text == "0")
+                {
+                    txtHeight.Text = "5";
+                    txtWidth.Text = "5";
+                }
+                inPaint.DefaultDrawingAttributes.Width = double.Parse(txtWidth.Text);
+                inPaint.DefaultDrawingAttributes.Height = double.Parse(txtHeight.Text);
             }
-            inPaint.DefaultDrawingAttributes.Color = Converter.ConvertStringToColor.StringToColor(txtColorHEX.Text);
-            inPaint.DefaultDrawingAttributes.Width = double.Parse(txtWidth.Text);
-            inPaint.DefaultDrawingAttributes.Height = double.Parse(txtHeight.Text);
         }
 
         private void btnEraser_Click(object sender, RoutedEventArgs e)

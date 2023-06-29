@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Media;
 
 namespace BrokPaint.Converter
@@ -7,18 +8,25 @@ namespace BrokPaint.Converter
     {
         public static System.Windows.Media.Color StringToColor(string HexString)
         {
-            if (HexString.StartsWith("#"))
-            {
-                var color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(HexString);
-                return color;
+			try
+			{
+                if (HexString.StartsWith("#"))
+                {
+                    var color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(HexString);
+                    return color;
+                }
+                else if (!HexString.StartsWith("#"))
+                {
+                    var color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(HexString);
+                    return color;
+                }
+                else
+                    return System.Windows.Media.Colors.White;
             }
-            else if (!HexString.StartsWith("#"))
+			catch (Exception)
             {
-                var color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(HexString);
-                return color;
-            }
-            else
                 return System.Windows.Media.Colors.White;
+            }
         }
     }
 }
