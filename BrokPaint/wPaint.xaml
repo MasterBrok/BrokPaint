@@ -26,12 +26,21 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel
+                Orientation="Horizontal"
                 Grid.Row="0"
                 >
                 <cc:ccButton
                     Content="Brush"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
+                    />
+
+                <cc:ccButton
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    />
+                <cc:ccTextBox
+                    Text="Brok"
                     />
             </StackPanel>
         </Grid>

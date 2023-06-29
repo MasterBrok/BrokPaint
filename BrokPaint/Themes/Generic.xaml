@@ -24,16 +24,53 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="5"
                         >
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                             <ContentPresenter
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 />
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger SourceName="brdMain" Property="IsMouseOver" Value="True">
                             <Setter Property="Opacity" Value="0.7"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type local:ccTextBox}">
+        <Setter Property="Width" Value="220"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Foreground" Value="{DynamicResource fgTextBox}"/>
+        <Setter Property="Background" Value="{DynamicResource bgTextBox}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource fgTextBox}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="5"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ccTextBox}">
+                    <Border
+                        x:Name="brdMain"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5"
+                        >
+                        <ScrollViewer
+                            x:Name="PART_ContentHost"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            HorizontalScrollBarVisibility="Disabled"
+                            VerticalScrollBarVisibility="Disabled"
+                            />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger SourceName="brdMain" Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource fgTextBoxIsMouseOver}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

@@ -7,8 +7,9 @@
     <SolidColorBrush x:Key="fgButton" Color="#CCFFFF"/>
 
     <!--Colors TextBox-->
-    <SolidColorBrush x:Key="bgTextBoxFalse" Color="#2D2533"/>
-    <SolidColorBrush x:Key="bgTextBoxTrue" Color="#3F3447"/>
+    <SolidColorBrush x:Key="bgTextBox" Color="#2D2533"/>
+    <SolidColorBrush x:Key="fgTextBox" Color="#645C6A"/>
+    <SolidColorBrush x:Key="fgTextBoxIsMouseOver" Color="#B6B3B8"/>
 
 
 </ResourceDictionary>
