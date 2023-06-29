@@ -33,6 +33,7 @@ namespace BrokPaint
 
         private void btnBrush_Click(object sender, RoutedEventArgs e)
         {
+            inPaint.EditingMode = InkCanvasEditingMode.Ink;
             if (txtWidth.Text == "0" || txtHeight.Text == "0")
             {
                 txtHeight.Text = "5";

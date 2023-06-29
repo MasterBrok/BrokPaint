@@ -32,6 +32,11 @@
                 x:Name="inPaint"
                 Grid.Row="1"
                 >
+                <InkCanvas.DefaultDrawingAttributes>
+                    <DrawingAttributes >
+                        <DrawingAttributes.FitToCurve>True</DrawingAttributes.FitToCurve>
+                    </DrawingAttributes>
+                </InkCanvas.DefaultDrawingAttributes>
             </InkCanvas>
 
             <StackPanel
@@ -138,7 +143,7 @@
                         <Ellipse Fill="{DynamicResource f3}" MouseLeftButtonDown="Ellipse_MouseLeftButtonDown"/>
                         <Ellipse Fill="{DynamicResource f4}" MouseLeftButtonDown="Ellipse_MouseLeftButtonDown"/>
                         <Ellipse Fill="{DynamicResource f5}" MouseLeftButtonDown="Ellipse_MouseLeftButtonDown"/>
-                        <Ellipse Fill="{DynamicResource f6}" MouseLeftButtonDown="Ellipse_MouseLeftButtonDown"s/>
+                        <Ellipse Fill="{DynamicResource f6}" MouseLeftButtonDown="Ellipse_MouseLeftButtonDown"/>
 
                     </StackPanel>
                 </Border>
